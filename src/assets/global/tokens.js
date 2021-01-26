@@ -4,3 +4,8 @@ export const colors = {
   gray100: '#dddddd',
   gray300: '#333333'
 };
+
+export const fonts = {
+  primary: "'Exo 2', sans-serif",
+  secondary: "'Open Sans', sans-serif"
+};
