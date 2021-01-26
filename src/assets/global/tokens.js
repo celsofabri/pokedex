@@ -1,3 +1,6 @@
+import 'typeface-exo-2';
+import 'typeface-open-sans';
+
 export const colors = {
   white: '#ffffff',
   black: '#000000',
