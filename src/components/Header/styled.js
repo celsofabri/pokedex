@@ -15,6 +15,7 @@ export const StyledHeader = styled.header`
 export const StyledLogo = styled.h1`
   display: block;
   max-width: 300px;
+  margin: 0;
 
   img {
     max-width: 100%;
