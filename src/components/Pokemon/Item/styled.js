@@ -19,6 +19,10 @@ export const StyledItem = styled.div`
     padding: 10px;
     font-family: ${fonts.primary};
     font-size: 20px;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
   }
 `;
 
