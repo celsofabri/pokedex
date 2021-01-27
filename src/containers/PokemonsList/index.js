@@ -16,7 +16,8 @@ const PokemonsList = () => {
 
         setState((prevState) => ({
           ...prevState,
-          pokemons: results
+          pokemons: results,
+          isLoading: false
         }));
       })
       .catch((err) => {

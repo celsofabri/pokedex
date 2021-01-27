@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { GlobalState } from 'context';
+import { Context } from 'context';
 import Header from 'components/Header';
 import PokemonsList from 'containers/PokemonsList';
 import GenerationsList from 'containers/GenerationsList';
 import PokemonDetail from 'containers/PokemonDetail';
 import PokemonsByGeneration from 'containers/PokemonsByGeneration';
+import Loading from 'components/Loading';
 
 const App = () => {
-  return (
-    <GlobalState>
-      <Header />
+  const { state } = useContext(Context);
+  const { isLoading } = state;
 
+  console.log('state', state);
+
+  return (
+    <React.Fragment>
+      <Header />
       <Switch>
         <Route exact path="/" component={PokemonsList} />
         <Route
@@ -30,7 +35,8 @@ const App = () => {
           component={PokemonsByGeneration}
         />
       </Switch>
-    </GlobalState>
+      <Loading isLoading={isLoading} />
+    </React.Fragment>
   );
 };
 

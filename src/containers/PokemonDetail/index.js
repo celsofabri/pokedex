@@ -28,7 +28,8 @@ const PokemonDetail = () => {
 
         setState((prevState) => ({
           ...prevState,
-          pokemonDetail: data
+          pokemonDetail: data,
+          isLoading: false
         }));
       })
       .catch((err) => {
@@ -76,7 +77,10 @@ const PokemonDetail = () => {
                     const { name } = type;
 
                     return (
-                      <StyledBadge key={index} type={name}>
+                      <StyledBadge
+                        key={`${index}-${name}`}
+                        type={name}
+                      >
                         {name}
                       </StyledBadge>
                     );
@@ -112,7 +116,7 @@ const PokemonDetail = () => {
                 {pokemonDetail.abilities.map(({ ability }, index) => {
                   const { name } = ability;
 
-                  return <p key={index}>{name}</p>;
+                  return <p key={`${index}-${name}`}>{name}</p>;
                 })}
               </StyledRow>
             )}
@@ -129,7 +133,7 @@ const PokemonDetail = () => {
                     return (
                       <StyledBar>
                         <StyledProgress
-                          key={index}
+                          key={`${index}-${name}`}
                           progress={base_stat}
                         />
                         <p>

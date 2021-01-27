@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { Context } from 'context';
 import PokemonItem from 'components/Pokemon/Item';
+import Loading from 'components/Loading';
 import { StyledWrapper } from 'assets/global/styled';
 import { StyledSection, StyledList } from './styled';
 import { getPokemonsByGeneration } from 'api';
@@ -12,13 +13,19 @@ const PokemonsList = () => {
   const { pokemonsByGeneration } = state;
 
   useEffect(() => {
+    setState((prevState) => ({
+      ...prevState,
+      isLoading: true
+    }));
+
     getPokemonsByGeneration(id)
       .then((res) => {
         const { pokemon_species } = res.data;
 
         setState((prevState) => ({
           ...prevState,
-          pokemonsByGeneration: pokemon_species
+          pokemonsByGeneration: pokemon_species,
+          isLoading: false
         }));
       })
       .catch((err) => {

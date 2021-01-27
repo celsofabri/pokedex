@@ -1,6 +1,7 @@
 import React from 'react';
 import { HashRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';
+import { GlobalState } from 'context';
 import App from 'containers/App';
 import reportWebVitals from './reportWebVitals';
 import 'index.css';
@@ -8,7 +9,9 @@ import 'index.css';
 ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
-      <App />
+      <GlobalState>
+        <App />
+      </GlobalState>
     </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')

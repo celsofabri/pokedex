@@ -16,7 +16,8 @@ const GenerationsList = () => {
 
         setState((prevState) => ({
           ...prevState,
-          generations: results
+          generations: results,
+          isLoading: false
         }));
       })
       .catch((err) => {
@@ -45,6 +46,7 @@ const GenerationsList = () => {
               <Link
                 to={`/generation/${id}`}
                 title={formatGenerationName(name)}
+                key={id}
               >
                 {formatGenerationName(name)}
               </Link>
