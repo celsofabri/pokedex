@@ -15,25 +15,30 @@ const GenerationsList = () => {
       isLoading: true
     }));
 
-    getGenerations()
-      .then((res) => {
-        const { results } = res.data;
+    async function getGenerationsList() {
+      try {
+        const payload = await getGenerations();
+        const data = payload?.data || {};
 
-        setState((prevState) => ({
-          ...prevState,
-          generations: results
-        }));
-
-        setTimeout(() => {
+        if (data) {
           setState((prevState) => ({
             ...prevState,
-            isLoading: false
+            generations: data.results || []
           }));
-        }, 1500);
-      })
-      .catch((err) => {
+
+          setTimeout(() => {
+            setState((prevState) => ({
+              ...prevState,
+              isLoading: false
+            }));
+          }, 1500);
+        }
+        return data;
+      } catch (err) {
         console.log(err);
-      });
+      }
+    }
+    getGenerationsList();
   }, [setState]);
 
   const formatGenerationName = (name) => {
