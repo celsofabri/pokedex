@@ -1,7 +1,8 @@
 const initialValues = {
   pokemons: [],
-  pokemonsByGeneration: [],
-  generations: []
+  pokemonDetail: {},
+  generations: [],
+  pokemonsByGeneration: []
 };
 
 export default initialValues;
