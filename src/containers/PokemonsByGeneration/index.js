@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from 'react';
+import { useParams } from 'react-router-dom';
 import { Context } from 'context';
 import PokemonItem from 'components/Pokemon/Item';
 import { StyledWrapper } from 'assets/global/styled';
@@ -6,6 +7,7 @@ import { StyledSection, StyledList } from './styled';
 import { getPokemonsByGeneration } from 'api';
 
 const PokemonsByGeneration = () => {
+  const { id } = useParams();
   const { state, setState } = useContext(Context);
   const { pokemonsByGeneration } = state;
 
@@ -17,7 +19,7 @@ const PokemonsByGeneration = () => {
 
     async function getPokemonsGenerationList() {
       try {
-        const payload = await getPokemonsByGeneration();
+        const payload = await getPokemonsByGeneration(id);
         const data = payload?.data || {};
 
         if (data) {
@@ -39,7 +41,7 @@ const PokemonsByGeneration = () => {
       }
     }
     getPokemonsGenerationList();
-  }, [setState]);
+  }, [setState, id]);
 
   return (
     <StyledSection>
