@@ -8,7 +8,9 @@ export const colors = {
   gray50: '#f8f8f8',
   gray75: '#eeeeee',
   gray100: '#dddddd',
-  gray300: '#333333'
+  gray300: '#333333',
+  yellow300: '#ffcc00',
+  blue300: '#006cb7'
 };
 
 export const fonts = {

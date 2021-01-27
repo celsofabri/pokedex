@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 import { StyledWrapper } from 'assets/global/styled';
+import { colors } from 'assets/global/tokens';
 
 export const StyledHeader = styled.header`
   display: block;
   width: 100%;
+  background-color: ${colors.gray100};
 
   ${StyledWrapper} {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
   }
 `;
