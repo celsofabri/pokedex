@@ -13,3 +13,17 @@ export const getPokemonByName = (name) => {
     url: `/pokemon/${name}`
   });
 };
+
+export const getGenerations = () => {
+  return PokemonInstance({
+    method: 'get',
+    url: `/generation/`
+  });
+};
+
+export const getPokemonsByGeneration = (id) => {
+  return PokemonInstance({
+    method: 'get',
+    url: `/generation/${id}`
+  });
+};

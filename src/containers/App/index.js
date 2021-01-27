@@ -4,7 +4,8 @@ import { GlobalState } from 'context';
 import Header from 'components/Header';
 import PokemonsList from 'containers/PokemonsList';
 import GenerationsList from 'containers/GenerationsList';
-import Detail from 'containers/Detail';
+import PokemonDetail from 'containers/PokemonDetail';
+import PokemonsByGeneration from 'containers/PokemonsByGeneration';
 
 const App = () => {
   return (
@@ -18,7 +19,16 @@ const App = () => {
           path="/generations"
           component={GenerationsList}
         />
-        <Route exact path="/pokemon/:name" component={Detail} />
+        <Route
+          exact
+          path="/pokemon/:name"
+          component={PokemonDetail}
+        />
+        <Route
+          exact
+          path="/generation/:id"
+          component={PokemonsByGeneration}
+        />
       </Switch>
     </GlobalState>
   );
