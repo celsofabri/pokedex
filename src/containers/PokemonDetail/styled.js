@@ -96,6 +96,20 @@ export const StyledInfo = styled.div`
   }
 `;
 
+export const StyledLabel = styled.div`
+  display: block;
+  margin-top: 10px;
+
+  > p {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+`;
+
 export const StyledBar = styled.div`
   position: relative;
   display: block;
@@ -106,7 +120,7 @@ export const StyledBar = styled.div`
   p {
     position: relative;
     z-index: 10;
-    padding: 10px;
+    padding: 5px 10px;
     font-size: 14px;
     color: ${colors.white};
   }

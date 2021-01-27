@@ -10,6 +10,7 @@ import {
   StyledTypes,
   StyledBadge,
   StyledInfo,
+  StyledLabel,
   StyledBar,
   StyledProgress,
   StyledRow
@@ -131,15 +132,16 @@ const PokemonDetail = () => {
                     const { name } = stat;
 
                     return (
-                      <StyledBar>
-                        <StyledProgress
-                          key={`${index}-${name}`}
-                          progress={base_stat}
-                        />
-                        <p>
-                          <strong>{name}</strong>: {base_stat}
-                        </p>
-                      </StyledBar>
+                      <StyledLabel>
+                        <p>{name}</p>
+                        <StyledBar>
+                          <StyledProgress
+                            key={`${index}-${name}`}
+                            progress={base_stat}
+                          />
+                          <p>{base_stat}</p>
+                        </StyledBar>
+                      </StyledLabel>
                     );
                   }
                 )}

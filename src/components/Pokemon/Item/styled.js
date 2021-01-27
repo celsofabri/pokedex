@@ -8,6 +8,7 @@ export const StyledItem = styled.div`
   margin: 10px;
   background-color: ${colors.gray75};
   border-radius: 10px;
+  transition: all 0.4s ease-out;
 
   a {
     color: ${colors.gray300};
@@ -24,6 +25,15 @@ export const StyledItem = styled.div`
       text-transform: uppercase;
     }
   }
+
+  &:hover {
+    background-color: ${colors.gray100};
+
+    img {
+      transform: scale(1.2);
+      transform: scale3d(1.2, 1.2, 1.2);
+    }
+  }
 `;
 
 export const StyledItemImg = styled.div`
@@ -37,5 +47,6 @@ export const StyledItemImg = styled.div`
     max-width: 100px;
     height: auto;
     margin: 0;
+    transition: all 0.4s ease-out;
   }
 `;
