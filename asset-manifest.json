@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "./static/css/main.9c7685f8.chunk.css",
+    "main.js": "./static/js/main.279d41f0.chunk.js",
+    "main.js.map": "./static/js/main.279d41f0.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.cbc74e5c.js",
+    "runtime-main.js.map": "./static/js/runtime-main.cbc74e5c.js.map",
+    "static/css/2.c5505396.chunk.css": "./static/css/2.c5505396.chunk.css",
+    "static/js/2.7405f810.chunk.js": "./static/js/2.7405f810.chunk.js",
+    "static/js/2.7405f810.chunk.js.map": "./static/js/2.7405f810.chunk.js.map",
+    "static/js/3.07ee9f7c.chunk.js": "./static/js/3.07ee9f7c.chunk.js",
+    "static/js/3.07ee9f7c.chunk.js.map": "./static/js/3.07ee9f7c.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/2.c5505396.chunk.css.map": "./static/css/2.c5505396.chunk.css.map",
+    "static/css/main.9c7685f8.chunk.css.map": "./static/css/main.9c7685f8.chunk.css.map",
+    "static/js/2.7405f810.chunk.js.LICENSE.txt": "./static/js/2.7405f810.chunk.js.LICENSE.txt",
+    "static/media/index.css": "./static/media/open-sans-latin-800italic.b5bc2661.woff2",
+    "static/media/icon-pokeball.b2fd87ff.svg": "./static/media/icon-pokeball.b2fd87ff.svg",
+    "static/media/pokemon-logo.68ca8022.png": "./static/media/pokemon-logo.68ca8022.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cbc74e5c.js",
+    "static/css/2.c5505396.chunk.css",
+    "static/js/2.7405f810.chunk.js",
+    "static/css/main.9c7685f8.chunk.css",
+    "static/js/main.279d41f0.chunk.js"
+  ]
+}
