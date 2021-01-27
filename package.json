@@ -21,7 +21,8 @@
     "start": "react-scripts start",
     "format": "prettier \"src/**/*.{js,jsx,json,css}\" --write",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false",
+    "test:dev": "react-scripts test",
     "test:lint": "yarn eslint . --ignore-path .gitignore --ext .js",
     "eject": "react-scripts eject"
   },
