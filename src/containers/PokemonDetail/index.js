@@ -7,8 +7,11 @@ import {
   StyledTitle,
   StyledContent,
   StyledImage,
+  StyledTypes,
+  StyledBadge,
   StyledInfo,
-  StyledSubtitle
+  StyledBar,
+  StyledProgress
 } from './styled';
 import { getPokemonByName } from 'api';
 
@@ -46,44 +49,87 @@ const PokemonDetail = () => {
                 alt={name}
               />
             )}
+
+            {pokemonDetail?.id && (
+              <p>
+                <strong>ID: </strong>
+                {pokemonDetail.id}
+              </p>
+            )}
+
+            {pokemonDetail?.base_experience && (
+              <p>
+                <strong>Base Experience: </strong>
+                {pokemonDetail.base_experience}
+              </p>
+            )}
+
+            {pokemonDetail?.types && (
+              <StyledTypes>
+                {pokemonDetail.types.map(({ type }, index) => {
+                  const { name } = type;
+
+                  return (
+                    <StyledBadge key={index} type={name}>
+                      {name}
+                    </StyledBadge>
+                  );
+                })}
+              </StyledTypes>
+            )}
+
+            {pokemonDetail?.height && (
+              <p>
+                {' '}
+                <strong>Height: </strong>
+                {pokemonDetail.height}
+              </p>
+            )}
+            {pokemonDetail?.weight && (
+              <p>
+                <strong>Weight: </strong>
+                {pokemonDetail.weight}
+              </p>
+            )}
           </StyledImage>
           <StyledInfo>
-            {pokemonDetail?.order && (
+            {pokemonDetail?.abilities && (
               <React.Fragment>
-                <StyledSubtitle>ID</StyledSubtitle>
-                <p>{pokemonDetail.order}</p>
+                <p>
+                  <strong>Abilities:</strong>
+                </p>
+                {pokemonDetail.abilities.map(({ ability }, index) => {
+                  const { name } = ability;
+
+                  return <p key={index}>{name}</p>;
+                })}
               </React.Fragment>
             )}
 
-            {pokemonDetail?.abilities &&
-              pokemonDetail.abilities.map(({ ability }, index) => {
-                const { name } = ability;
+            {pokemonDetail?.stats && (
+              <React.Fragment>
+                <p>
+                  <strong>Stats:</strong>
+                </p>
+                {pokemonDetail.stats.map(
+                  ({ stat, base_stat }, index) => {
+                    const { name } = stat;
 
-                return <p key={index}>{name}</p>;
-              })}
-
-            {pokemonDetail?.height && <p>{pokemonDetail.height}</p>}
-            {pokemonDetail?.weight && <p>{pokemonDetail.weight}</p>}
-
-            {pokemonDetail?.types &&
-              pokemonDetail.types.map(({ type }, index) => {
-                const { name } = type;
-
-                return <p key={index}>{name}</p>;
-              })}
-
-            {pokemonDetail?.stats &&
-              pokemonDetail.stats.map(
-                ({ stat, base_stat }, index) => {
-                  const { name } = stat;
-
-                  return (
-                    <p key={index}>
-                      {name}: {base_stat}
-                    </p>
-                  );
-                }
-              )}
+                    return (
+                      <StyledBar>
+                        <StyledProgress
+                          key={index}
+                          progress={base_stat}
+                        />
+                        <p>
+                          {name}: {base_stat}
+                        </p>
+                      </StyledBar>
+                    );
+                  }
+                )}
+              </React.Fragment>
+            )}
           </StyledInfo>
         </StyledContent>
       </StyledWrapper>
