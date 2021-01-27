@@ -28,25 +28,30 @@ const PokemonDetail = () => {
       isLoading: true
     }));
 
-    getPokemonByName(name)
-      .then((res) => {
-        const { data } = res;
+    async function getPokemonDetailByName() {
+      try {
+        const payload = await getPokemonByName(name);
+        const data = payload?.data || {};
 
-        setState((prevState) => ({
-          ...prevState,
-          pokemonDetail: data
-        }));
-
-        setTimeout(() => {
+        if (data) {
           setState((prevState) => ({
             ...prevState,
-            isLoading: false
+            pokemonDetail: data || []
           }));
-        }, 1500);
-      })
-      .catch((err) => {
+
+          setTimeout(() => {
+            setState((prevState) => ({
+              ...prevState,
+              isLoading: false
+            }));
+          }, 1500);
+        }
+        return data;
+      } catch (err) {
         console.log(err);
-      });
+      }
+    }
+    getPokemonDetailByName();
   }, [setState, name]);
 
   return (
