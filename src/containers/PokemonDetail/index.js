@@ -23,15 +23,26 @@ const PokemonDetail = () => {
   const { pokemonDetail } = state;
 
   useEffect(() => {
+    setState((prevState) => ({
+      ...prevState,
+      isLoading: true
+    }));
+
     getPokemonByName(name)
       .then((res) => {
         const { data } = res;
 
         setState((prevState) => ({
           ...prevState,
-          pokemonDetail: data,
-          isLoading: false
+          pokemonDetail: data
         }));
+
+        setTimeout(() => {
+          setState((prevState) => ({
+            ...prevState,
+            isLoading: false
+          }));
+        }, 1500);
       })
       .catch((err) => {
         console.log(err);

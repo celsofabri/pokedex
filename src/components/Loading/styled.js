@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
+import { colors } from 'assets/global/tokens';
 
 const rotate = keyframes`
   from {
@@ -20,8 +21,7 @@ export const StyledLoading = styled.div`
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.95);
-  transition: all 0.4s ease-out;
+  background-color: ${colors.white};
   opacity: 0;
   visibility: hidden;
   transform: scale(1.1);

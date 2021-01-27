@@ -10,15 +10,26 @@ const PokemonsList = () => {
   const { pokemons } = state;
 
   useEffect(() => {
+    setState((prevState) => ({
+      ...prevState,
+      isLoading: true
+    }));
+
     getPokemons()
       .then((res) => {
         const { results } = res.data;
 
         setState((prevState) => ({
           ...prevState,
-          pokemons: results,
-          isLoading: false
+          pokemons: results
         }));
+
+        setTimeout(() => {
+          setState((prevState) => ({
+            ...prevState,
+            isLoading: false
+          }));
+        }, 1500);
       })
       .catch((err) => {
         console.log(err);

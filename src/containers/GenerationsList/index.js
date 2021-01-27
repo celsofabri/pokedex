@@ -10,15 +10,26 @@ const GenerationsList = () => {
   const { generations } = state;
 
   useEffect(() => {
+    setState((prevState) => ({
+      ...prevState,
+      isLoading: true
+    }));
+
     getGenerations()
       .then((res) => {
         const { results } = res.data;
 
         setState((prevState) => ({
           ...prevState,
-          generations: results,
-          isLoading: false
+          generations: results
         }));
+
+        setTimeout(() => {
+          setState((prevState) => ({
+            ...prevState,
+            isLoading: false
+          }));
+        }, 1500);
       })
       .catch((err) => {
         console.log(err);

@@ -71,6 +71,7 @@ export const StyledBadge = styled.p`
   margin: 5px;
   padding: 5px 20px;
   color: ${colors.gray300};
+  font-weight: 600;
   background-color: ${(props) =>
     props.type && types[props.type]
       ? lighten(0.15, types[props.type])
@@ -122,6 +123,7 @@ export const StyledBar = styled.div`
     z-index: 10;
     padding: 5px 10px;
     font-size: 14px;
+    font-weight: 600;
     color: ${colors.white};
   }
 `;

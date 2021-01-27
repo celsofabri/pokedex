@@ -24,9 +24,15 @@ const PokemonsList = () => {
 
         setState((prevState) => ({
           ...prevState,
-          pokemonsByGeneration: pokemon_species,
-          isLoading: false
+          pokemonsByGeneration: pokemon_species
         }));
+
+        setTimeout(() => {
+          setState((prevState) => ({
+            ...prevState,
+            isLoading: false
+          }));
+        }, 1500);
       })
       .catch((err) => {
         console.log(err);
