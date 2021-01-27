@@ -34,6 +34,14 @@ export const StyledItem = styled.div`
       transform: scale3d(1.2, 1.2, 1.2);
     }
   }
+
+  @media screen and (max-width: 768px) {
+    width: 40%;
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
 `;
 
 export const StyledItemImg = styled.div`
