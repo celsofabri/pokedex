@@ -27,7 +27,7 @@
     "test:dev": "react-scripts test",
     "test:lint": "yarn eslint . --ignore-path .gitignore --ext .js",
     "predeploy": "yarn build --prefix-paths",
-    "deploy": "gh-pages -d public",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
