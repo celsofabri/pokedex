@@ -1,158 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { StyledItem, StyledItemImg } from './styled';
 
-const PokemonItem = () => {
+const PokemonItem = ({ name, id }) => {
   return (
-    <React.Fragment>
-      <StyledItem>
+    <StyledItem>
+      <Link to={`/pokemon/${name}`} title={name}>
         <StyledItemImg>
           <img
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
-            alt="Nome do Pokémon"
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}
+            alt={name}
           />
         </StyledItemImg>
-        <h3>Pikachu</h3>
-      </StyledItem>
-
-      {/*<StyledItem>
-              <StyledItemImg>
-                <img
-                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
-                  alt="Nome do Pokémon"
-                />
-              </StyledItemImg>
-              <h3>Bulbasaur</h3>
-            </StyledItem>
-            <StyledItem>
-              <StyledItemImg>
-                <img
-                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
-                  alt="Nome do Pokémon"
-                />
-              </StyledItemImg>
-              <h3>Squirtle</h3>
-            </StyledItem>
-            <StyledItem>
-              <StyledItemImg>
-                <img
-                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
-                  alt="Nome do Pokémon"
-                />
-              </StyledItemImg>
-              <h3>Charmander</h3>
-            </StyledItem>
-            <StyledItem>
-              <StyledItemImg>
-                <img
-                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
-                  alt="Nome do Pokémon"
-                />
-              </StyledItemImg>
-              <h3>Pikachu</h3>
-            </StyledItem>
-
-            <StyledItem>
-              <StyledItemImg>
-                <img
-                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
-                  alt="Nome do Pokémon"
-                />
-              </StyledItemImg>
-              <h3>Bulbasaur</h3>
-            </StyledItem>
-            <StyledItem>
-              <StyledItemImg>
-                <img
-                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
-                  alt="Nome do Pokémon"
-                />
-              </StyledItemImg>
-              <h3>Squirtle</h3>
-            </StyledItem>
-            <StyledItem>
-              <StyledItemImg>
-                <img
-                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
-                  alt="Nome do Pokémon"
-                />
-              </StyledItemImg>
-              <h3>Charmander</h3>
-            </StyledItem>
-            <StyledItem>
-              <StyledItemImg>
-                <img
-                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
-                  alt="Nome do Pokémon"
-                />
-              </StyledItemImg>
-              <h3>Pikachu</h3>
-            </StyledItem>
-
-            <StyledItem>
-              <StyledItemImg>
-                <img
-                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
-                  alt="Nome do Pokémon"
-                />
-              </StyledItemImg>
-              <h3>Bulbasaur</h3>
-            </StyledItem>
-            <StyledItem>
-              <StyledItemImg>
-                <img
-                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
-                  alt="Nome do Pokémon"
-                />
-              </StyledItemImg>
-              <h3>Squirtle</h3>
-            </StyledItem>
-            <StyledItem>
-              <StyledItemImg>
-                <img
-                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
-                  alt="Nome do Pokémon"
-                />
-              </StyledItemImg>
-              <h3>Charmander</h3>
-            </StyledItem>
-            <StyledItem>
-              <StyledItemImg>
-                <img
-                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
-                  alt="Nome do Pokémon"
-                />
-              </StyledItemImg>
-              <h3>Pikachu</h3>
-            </StyledItem>
-
-            <StyledItem>
-              <StyledItemImg>
-                <img
-                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
-                  alt="Nome do Pokémon"
-                />
-              </StyledItemImg>
-              <h3>Bulbasaur</h3>
-            </StyledItem>
-            <StyledItem>
-              <StyledItemImg>
-                <img
-                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
-                  alt="Nome do Pokémon"
-                />
-              </StyledItemImg>
-              <h3>Squirtle</h3>
-            </StyledItem>
-            <StyledItem>
-              <StyledItemImg>
-                <img
-                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"
-                  alt="Nome do Pokémon"
-                />
-              </StyledItemImg>
-              <h3>Charmander</h3>
-            </StyledItem>*/}
-    </React.Fragment>
+        <h3>{name}</h3>
+      </Link>
+    </StyledItem>
   );
 };
 
