@@ -9,6 +9,11 @@ export const StyledItem = styled.div`
   background-color: ${colors.gray75};
   border-radius: 10px;
 
+  a {
+    color: ${colors.gray300};
+    text-decoration: none;
+  }
+
   h3 {
     margin: 0;
     padding: 10px;
