@@ -15,40 +15,46 @@ const PokemonsList = () => {
       isLoading: true
     }));
 
-    getPokemons()
-      .then((res) => {
-        const { results } = res.data;
+    async function getPokemonsList() {
+      try {
+        const payload = await getPokemons();
+        const data = payload?.data || {};
 
-        setState((prevState) => ({
-          ...prevState,
-          pokemons: results
-        }));
-
-        setTimeout(() => {
+        if (data) {
           setState((prevState) => ({
             ...prevState,
-            isLoading: false
+            pokemons: data.results || []
           }));
-        }, 1500);
-      })
-      .catch((err) => {
+
+          setTimeout(() => {
+            setState((prevState) => ({
+              ...prevState,
+              isLoading: false
+            }));
+          }, 1500);
+        }
+        return data;
+      } catch (err) {
         console.log(err);
-      });
+      }
+    }
+    getPokemonsList();
   }, [setState]);
 
   return (
     <StyledSection>
       <StyledWrapper>
         <StyledList>
-          {pokemons.map((pokemon, index) => {
-            const { name, url } = pokemon;
-            const id = url.substring(
-              url.lastIndexOf('/pokemon/') + 9,
-              url.length - 1
-            );
+          {pokemons.length > 0 &&
+            pokemons.map((pokemon, index) => {
+              const { name, url } = pokemon;
+              const id = url.substring(
+                url.lastIndexOf('/pokemon/') + 9,
+                url.length - 1
+              );
 
-            return <PokemonItem key={index} name={name} id={id} />;
-          })}
+              return <PokemonItem key={index} name={name} id={id} />;
+            })}
         </StyledList>
       </StyledWrapper>
     </StyledSection>
