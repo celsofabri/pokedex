@@ -1,14 +1,11 @@
 import React, { useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
 import { Context } from 'context';
 import PokemonItem from 'components/Pokemon/Item';
-import Loading from 'components/Loading';
 import { StyledWrapper } from 'assets/global/styled';
 import { StyledSection, StyledList } from './styled';
 import { getPokemonsByGeneration } from 'api';
 
-const PokemonsList = () => {
-  const { id } = useParams();
+const PokemonsByGeneration = () => {
   const { state, setState } = useContext(Context);
   const { pokemonsByGeneration } = state;
 
@@ -18,26 +15,31 @@ const PokemonsList = () => {
       isLoading: true
     }));
 
-    getPokemonsByGeneration(id)
-      .then((res) => {
-        const { pokemon_species } = res.data;
+    async function getPokemonsGenerationList() {
+      try {
+        const payload = await getPokemonsByGeneration();
+        const data = payload?.data || {};
 
-        setState((prevState) => ({
-          ...prevState,
-          pokemonsByGeneration: pokemon_species
-        }));
-
-        setTimeout(() => {
+        if (data) {
           setState((prevState) => ({
             ...prevState,
-            isLoading: false
+            pokemonsByGeneration: data.pokemon_species || []
           }));
-        }, 1500);
-      })
-      .catch((err) => {
+
+          setTimeout(() => {
+            setState((prevState) => ({
+              ...prevState,
+              isLoading: false
+            }));
+          }, 1500);
+        }
+        return data;
+      } catch (err) {
         console.log(err);
-      });
-  }, []);
+      }
+    }
+    getPokemonsGenerationList();
+  }, [setState]);
 
   return (
     <StyledSection>
@@ -58,4 +60,4 @@ const PokemonsList = () => {
   );
 };
 
-export default PokemonsList;
+export default PokemonsByGeneration;
