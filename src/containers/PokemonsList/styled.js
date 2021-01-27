@@ -10,4 +10,6 @@ export const StyledList = styled.ul`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin: -10px;
+  padding: 0;
 `;

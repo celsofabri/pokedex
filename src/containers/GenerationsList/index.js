@@ -2,6 +2,8 @@ import React, { useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from 'context';
 import { getGenerations } from 'api';
+import { StyledWrapper } from 'assets/global/styled';
+import { StyledSection, StyledGenerations } from './styled';
 
 const GenerationsList = () => {
   const { state, setState } = useContext(Context);
@@ -22,22 +24,35 @@ const GenerationsList = () => {
       });
   }, [setState]);
 
-  return (
-    <React.Fragment>
-      {generations.map((generation) => {
-        const { name, url } = generation;
-        const id = url.substring(
-          url.lastIndexOf('/generation/') + 12,
-          url.length - 1
-        );
+  const formatGenerationName = (name) => {
+    const generation = name.split('-')[1];
 
-        return (
-          <Link to={`/generation/${id}`} title={name}>
-            {name}
-          </Link>
-        );
-      })}
-    </React.Fragment>
+    return `Generation ${generation.toUpperCase()}`;
+  };
+
+  return (
+    <StyledSection>
+      <StyledWrapper>
+        <StyledGenerations>
+          {generations.map((generation) => {
+            const { name, url } = generation;
+            const id = url.substring(
+              url.lastIndexOf('/generation/') + 12,
+              url.length - 1
+            );
+
+            return (
+              <Link
+                to={`/generation/${id}`}
+                title={formatGenerationName(name)}
+              >
+                {formatGenerationName(name)}
+              </Link>
+            );
+          })}
+        </StyledGenerations>
+      </StyledWrapper>
+    </StyledSection>
   );
 };
 
