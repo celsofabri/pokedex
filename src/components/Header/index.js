@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <StyledHeader>
       <StyledWrapper>
-        <StyledLogo>
+        <StyledLogo data-testid="logo">
           <Link to="/" title="Home">
             <img
               src={LogoPokemon}

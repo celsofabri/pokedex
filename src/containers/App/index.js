@@ -12,8 +12,6 @@ const App = () => {
   const { state } = useContext(Context);
   const { isLoading } = state;
 
-  console.log('state', state);
-
   return (
     <React.Fragment>
       <Header />
