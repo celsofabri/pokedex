@@ -37,6 +37,15 @@ $ yarn format
 # or npm run format
 ```
 
+## :microscope: Testing
+
+Was used testing library and jest to create unit tests in the application. If you want run manually, run the following command:
+
+```
+$ yarn test
+# or npm run test
+```
+
 ## :hammer: Building
 
 To building the project, run the following commands:
