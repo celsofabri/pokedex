@@ -56,6 +56,10 @@ export const StyledImage = styled.div`
       font-family: ${fonts.primary};
     }
   }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const StyledTypes = styled.div`
@@ -94,6 +98,11 @@ export const StyledInfo = styled.div`
     strong {
       font-family: ${fonts.primary};
     }
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    margin-top: 50px;
   }
 `;
 

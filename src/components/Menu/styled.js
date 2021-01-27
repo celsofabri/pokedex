@@ -54,5 +54,9 @@ export const StyledMenuItem = styled.li`
         background-color: ${colors.blue300};
       }
     }
+
+    @media screen and (max-width: 420px) {
+      font-size: 16px;
+    }
   }
 `;

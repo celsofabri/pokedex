@@ -11,6 +11,11 @@ export const StyledHeader = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: 520px) {
+      justify-content: center;
+    }
   }
 `;
 
@@ -22,5 +27,11 @@ export const StyledLogo = styled.h1`
   img {
     max-width: 100%;
     height: auto;
+  }
+
+  @media screen and (max-width: 520px) {
+    display: block;
+    width: 100%;
+    text-align: center;
   }
 `;

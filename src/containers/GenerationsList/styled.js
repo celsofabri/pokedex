@@ -33,6 +33,12 @@ export const StyledGenerations = styled.div`
     border-radius: 30px;
     transition: all 0.2s ease-in-out;
 
+    @media screen and (max-width: 420px) {
+      width: 100%;
+      min-height: 80px;
+      font-size: 16px;
+    }
+
     &:hover {
       color: ${colors.white};
       background-color: ${colors.blue300};
