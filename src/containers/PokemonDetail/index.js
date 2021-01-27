@@ -11,7 +11,8 @@ import {
   StyledBadge,
   StyledInfo,
   StyledBar,
-  StyledProgress
+  StyledProgress,
+  StyledRow
 } from './styled';
 import { getPokemonByName } from 'api';
 
@@ -51,50 +52,60 @@ const PokemonDetail = () => {
             )}
 
             {pokemonDetail?.id && (
-              <p>
-                <strong>ID: </strong>
-                {pokemonDetail.id}
-              </p>
+              <StyledRow>
+                <p>
+                  <strong>ID: </strong>
+                  {pokemonDetail.id}
+                </p>
+              </StyledRow>
             )}
 
             {pokemonDetail?.base_experience && (
-              <p>
-                <strong>Base Experience: </strong>
-                {pokemonDetail.base_experience}
-              </p>
+              <StyledRow>
+                <p>
+                  <strong>Base Experience: </strong>
+                  {pokemonDetail.base_experience}
+                </p>
+              </StyledRow>
             )}
 
             {pokemonDetail?.types && (
-              <StyledTypes>
-                {pokemonDetail.types.map(({ type }, index) => {
-                  const { name } = type;
+              <StyledRow>
+                <StyledTypes>
+                  {pokemonDetail.types.map(({ type }, index) => {
+                    const { name } = type;
 
-                  return (
-                    <StyledBadge key={index} type={name}>
-                      {name}
-                    </StyledBadge>
-                  );
-                })}
-              </StyledTypes>
+                    return (
+                      <StyledBadge key={index} type={name}>
+                        {name}
+                      </StyledBadge>
+                    );
+                  })}
+                </StyledTypes>
+              </StyledRow>
             )}
 
             {pokemonDetail?.height && (
-              <p>
-                {' '}
-                <strong>Height: </strong>
-                {pokemonDetail.height}
-              </p>
+              <StyledRow>
+                <p>
+                  {' '}
+                  <strong>Height: </strong>
+                  {pokemonDetail.height}
+                </p>
+              </StyledRow>
             )}
             {pokemonDetail?.weight && (
-              <p>
-                <strong>Weight: </strong>
-                {pokemonDetail.weight}
-              </p>
+              <StyledRow>
+                <p>
+                  <strong>Weight: </strong>
+                  {pokemonDetail.weight}
+                </p>
+              </StyledRow>
             )}
           </StyledImage>
           <StyledInfo>
             {pokemonDetail?.abilities && (
-              <React.Fragment>
+              <StyledRow>
                 <p>
                   <strong>Abilities:</strong>
                 </p>
@@ -103,11 +114,11 @@ const PokemonDetail = () => {
 
                   return <p key={index}>{name}</p>;
                 })}
-              </React.Fragment>
+              </StyledRow>
             )}
 
             {pokemonDetail?.stats && (
-              <React.Fragment>
+              <StyledRow>
                 <p>
                   <strong>Stats:</strong>
                 </p>
@@ -122,13 +133,13 @@ const PokemonDetail = () => {
                           progress={base_stat}
                         />
                         <p>
-                          {name}: {base_stat}
+                          <strong>{name}</strong>: {base_stat}
                         </p>
                       </StyledBar>
                     );
                   }
                 )}
-              </React.Fragment>
+              </StyledRow>
             )}
           </StyledInfo>
         </StyledContent>

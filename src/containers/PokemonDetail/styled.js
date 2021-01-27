@@ -69,7 +69,7 @@ export const StyledTypes = styled.div`
 export const StyledBadge = styled.p`
   display: inline-block;
   margin: 5px;
-  padding: 5px 10px;
+  padding: 5px 20px;
   color: ${colors.gray300};
   background-color: ${(props) =>
     props.type && types[props.type]
@@ -122,4 +122,18 @@ export const StyledProgress = styled.div`
   height: 100%;
   background-color: ${colors.blue300};
   border-radius: 30px;
+`;
+
+export const StyledRow = styled.div`
+  border-top: 1px solid ${colors.gray100};
+  padding: 5px;
+
+  p {
+    margin: 5px;
+  }
+
+  &:first-child,
+  &:first-of-type {
+    border-top: none;
+  }
 `;
