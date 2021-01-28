@@ -41,20 +41,29 @@ export const StyledTitle = styled.h2`
   &::first-letter {
     text-transform: uppercase;
   }
+
+  @media screen and (max-width: 768px) {
+    font-size: 24px;
+  }
+
+  @media screen and (max-width: 420px) {
+    font-size: 20px;
+  }
 `;
 
 export const StyledBack = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   margin-right: 10px;
   text-indent: -9999px;
   background-image: url(${IconBack});
   background-repeat: no-repeat;
-  background-size: 24px auto;
+  background-size: 20px auto;
   background-color: transparent;
+  background-position: left center;
   border: none;
   cursor: pointer;
 `;
