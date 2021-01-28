@@ -1,15 +1,25 @@
 import React, { useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { Context } from 'context';
 import PokemonItem from 'components/Pokemon/Item';
 import { StyledWrapper } from 'assets/global/styled';
-import { StyledSection, StyledTitle, StyledList } from './styled';
+import {
+  StyledSection,
+  StyledTitle,
+  StyledBack,
+  StyledList
+} from './styled';
 import { getPokemonsByGeneration } from 'api';
 
 const PokemonsByGeneration = () => {
   const { id } = useParams();
   const { state, setState } = useContext(Context);
   const { pokemonsByGeneration, currentGeneration } = state;
+  let history = useHistory();
+
+  const goBackHistory = () => {
+    history.go(-1);
+  };
 
   useEffect(() => {
     setState((prevState) => ({
@@ -46,7 +56,12 @@ const PokemonsByGeneration = () => {
   return (
     <StyledSection>
       <StyledWrapper>
-        <StyledTitle>{currentGeneration}</StyledTitle>
+        <StyledTitle>
+          <StyledBack type="button" onClick={goBackHistory}>
+            Voltar
+          </StyledBack>
+          {currentGeneration}
+        </StyledTitle>
         <StyledList>
           {pokemonsByGeneration.map((pokemon, index) => {
             const { name, url } = pokemon;

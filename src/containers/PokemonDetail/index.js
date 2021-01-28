@@ -1,10 +1,11 @@
 import React, { useEffect, useContext } from 'react';
 import { Context } from 'context';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { StyledWrapper } from 'assets/global/styled';
 import {
   StyledSection,
   StyledTitle,
+  StyledBack,
   StyledContent,
   StyledImage,
   StyledTypes,
@@ -21,6 +22,11 @@ const PokemonDetail = () => {
   const { name } = useParams();
   const { state, setState } = useContext(Context);
   const { pokemonDetail } = state;
+  let history = useHistory();
+
+  const goBackHistory = () => {
+    history.go(-1);
+  };
 
   useEffect(() => {
     setState((prevState) => ({
@@ -57,7 +63,12 @@ const PokemonDetail = () => {
   return (
     <StyledSection>
       <StyledWrapper>
-        <StyledTitle>{name}</StyledTitle>
+        <StyledTitle>
+          <StyledBack type="button" onClick={goBackHistory}>
+            Voltar
+          </StyledBack>
+          {name}
+        </StyledTitle>
         <StyledContent>
           <StyledImage>
             {pokemonDetail?.id && (
