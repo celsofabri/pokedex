@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from 'react';
 import { Context } from 'context';
 import PokemonItem from 'components/Pokemon/Item';
 import { StyledWrapper } from 'assets/global/styled';
-import { StyledSection, StyledList } from './styled';
+import { StyledSection, StyledTitle, StyledList } from './styled';
 import { getPokemons } from 'api';
 
 const PokemonsList = () => {
@@ -44,6 +44,7 @@ const PokemonsList = () => {
   return (
     <StyledSection>
       <StyledWrapper>
+        <StyledTitle>Generation I</StyledTitle>
         <StyledList>
           {pokemons.length > 0 &&
             pokemons.map((pokemon, index) => {

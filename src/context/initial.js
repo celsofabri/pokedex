@@ -3,6 +3,7 @@ const initialValues = {
   pokemonDetail: {},
   generations: [],
   pokemonsByGeneration: [],
+  currentGeneration: 'Generation I',
   isLoading: true
 };
 

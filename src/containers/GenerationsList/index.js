@@ -60,9 +60,15 @@ const GenerationsList = () => {
 
             return (
               <Link
+                key={id}
                 to={`/generation/${id}`}
                 title={formatGenerationName(name)}
-                key={id}
+                onClick={() => {
+                  setState((prevState) => ({
+                    ...prevState,
+                    currentGeneration: formatGenerationName(name)
+                  }));
+                }}
               >
                 {formatGenerationName(name)}
               </Link>
