@@ -8,14 +8,13 @@ import GenerationsList from 'containers/GenerationsList';
 import PokemonDetail from 'containers/PokemonDetail';
 import PokemonsByGeneration from 'containers/PokemonsByGeneration';
 import Loading from 'components/Loading';
-import { Container } from './styled';
 
 const App = () => {
   const { state } = useContext(Context);
   const { isLoading } = state;
 
   return (
-    <Container>
+    <React.Fragment>
       <Header />
       <Switch>
         <Route exact path="/" component={PokemonsList} />
@@ -37,7 +36,7 @@ const App = () => {
       </Switch>
       <Footer />
       <Loading isLoading={isLoading} />
-    </Container>
+    </React.Fragment>
   );
 };
 
