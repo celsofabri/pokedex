@@ -6,6 +6,7 @@ export const StyledHeader = styled.header`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 9999;
   display: block;
   width: 100%;
   background-color: ${colors.gray100};
